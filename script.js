@@ -1,5 +1,6 @@
 let secondHand, minuteHand, hourHand, amOrPm;
 
+// Order of timeCodeArr offsets: Tokyo, Boston, London, Seattle, Chicago, Moscow, Beijing, Sydney
 let timeCodeArr = [0, -13, -8, -16, -14, -6, -1, 1];
 
 function getTime() {

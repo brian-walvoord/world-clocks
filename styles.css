@@ -33,6 +33,7 @@ body {
   transform-origin: 0 100%;
   margin-top: 10px;
   margin-left: 100px;
+  transition: none;
 }
 
 .minute-hand {
@@ -84,5 +85,19 @@ h1 {
   margin-bottom: 20px;
   font-family: 'Aboreto', cursive;
   font-weight: bold;
+  font-size: 25px;
 }
 
+img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  transition: 0.7s;
+  object-fit: cover;
+}
+
+.clock:hover > * {
+  opacity: 1;
+}
