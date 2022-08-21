@@ -80,6 +80,7 @@ h1 {
   color: rgb(201, 201, 201);
   justify-self: center;
   font-family: 'Aboreto', cursive;
+  margin-top: 55px;
 }
 
 .amOrPm {
@@ -105,4 +106,13 @@ img {
 
 .clock:hover > * {
   opacity: 1;
+}
+
+.day {
+  grid-column: 2 / 3;
+  grid-row: 2;
+  color: rgb(201, 201, 201);
+  justify-self: center;
+  font-family: 'Aboreto', cursive;
+  font-size: 25px;
 }

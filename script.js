@@ -1,37 +1,53 @@
-let secondHand, minuteHand, hourHand, amOrPm;
+let secondHand, minuteHand, hourHand, amOrPm, day;
 
-// Order of timeCodeArr offsets: Tokyo, Boston, London, Seattle, Chicago, Moscow, Beijing, Sydney
-let timeCodeArr = [0, -13, -8, -16, -14, -6, -1, 1];
+function changeTimeZone(date, timeZone) {
+  if (typeof date === 'string') {
+    return new Date(
+      new Date(date).toLocaleString('en-US', {
+        timeZone,
+      }),
+    );
+  }
+  return new Date(
+    date.toLocaleString('en-US', {
+      timeZone,
+    }),
+  );
+};
+
+let array = [
+  "Asia/Tokyo", 
+  "America/New_York", 
+  "Europe/London", 
+  "America/Los_Angeles",
+  "America/Chicago",
+  "Europe/Moscow",
+  "Asia/Shanghai",
+  "Australia/Sydney"
+];
 
 function getTime() {
   for(let i = 0; i < 8; i++) {
-    let now = new Date();
+    let now = changeTimeZone(new Date(), array[i]);
     secondHand = document.getElementsByClassName("second-hand")[i];
     minuteHand = document.getElementsByClassName("minute-hand")[i];
     hourHand = document.getElementsByClassName("hour-hand")[i];
     amOrPm = document.getElementsByClassName("amOrPm")[i];
+    day = document.getElementsByClassName("day")[i];
     const seconds = now.getSeconds();
     const minutes = now.getMinutes();
     const hours = now.getHours();
     const timeInterval = 6;
-    let hourOffSet;
-    if (timeCodeArr[i] + hours > 23) {
-      hourOffSet = hours - timeCodeArr[i];
-    } else if (timeCodeArr[i] + hours < 0) {
-      hourOffSet = (24 + (timeCodeArr[i] + hours));
-    } else {
-      hourOffSet = timeCodeArr[i];
-    }
-   
-    if ((hours + hourOffSet) < 12) {
+    let fullTime = now.toTimeString().split(" ")[0];
+    day.innerText = fullTime.split(":").slice(0, 2).join(":");
+    if (hours < 12) {
       amOrPm.innerText = "AM";
     } else {
       amOrPm.innerText = "PM";
     }
     secondHand.style.transform = `rotate(${seconds * timeInterval}deg)`;
     minuteHand.style.transform = `rotate(${minutes * timeInterval + seconds / 10}deg)`;
-    hourHand.style.transform = `rotate(${(hours + hourOffSet) * 30 + minutes / 2}deg)`;
-
+    hourHand.style.transform = `rotate(${hours * 30 + minutes / 2}deg)`;
   }
 }
 
