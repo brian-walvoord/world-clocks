@@ -1,2 +1,2 @@
 # world-clocks
-Interface for setting up different clocks from around the world
+App for displaying analog clock times from around the world
