@@ -12,6 +12,7 @@ body {
   grid-template-rows: repeat(2, 1fr);
   height: 45vh;
   width: auto;
+  background-color: #282828;
 }
 
 .clock {
