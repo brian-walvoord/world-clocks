@@ -3,7 +3,7 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 20px;
-  background-color: rgb(61, 60, 60)
+  background-color: #282828;
 }
 
 .clock-tile {
@@ -20,8 +20,13 @@ body {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  border: solid 4px whitesmoke;
+  border: solid 4px #282828;
   margin-top: 20px;
+
+  box-shadow: -4px -4px 10px rgba(67,67,67,0.5),
+              inset 4px 4px 10px rgba(0,0,0,0.5),
+              inset -4px -4px 10px rgba(67,67,67,0.5),
+              4px 4px 10px rgba(0,0,0,0.3);
 }
 
 .second-hand {
@@ -72,17 +77,17 @@ body {
 h1 {
   grid-column: 2 / 3;
   grid-row: 2;
-  color: whitesmoke;
+  color: rgb(201, 201, 201);
   justify-self: center;
   font-family: 'Aboreto', cursive;
 }
 
 .amOrPm {
-  color: rgba(245, 245, 245, 0.568);
+  color: rgb(97, 96, 98);
   grid-row: 1;
   grid-column: 2;
   margin: auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-family: 'Aboreto', cursive;
   font-weight: bold;
   font-size: 25px;
